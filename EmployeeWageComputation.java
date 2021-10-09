@@ -4,27 +4,28 @@ public class EmployeeWageComputation {
 	public static void main(String[] args) {
 		
 //		constants for program
-		double empPresentAbsent = Math.floor(Math.random() * 10) % 3;
-		long presentAbsent = (long)empPresentAbsent;
-		int empCheck = (int)presentAbsent;
-		int empWagePerHr =20; 
+		int isFullTime = 1;
+		int isPartTime = 2;
+		int wagePerHr = 20;
+		int fullTimeWorkHr = 8;
+		int partTimeWorkHr = 4;
+		int noOfWorkingDays = 20;
+		double empCheck = Math.floor(Math.random() * 10) % 3;
 		
-//		checking condition with switch case 
-		
-		switch(empCheck){
-			case 1:
-				int empFullTimeHr = 8;			
-				int fullTimeEmpsalary = empWagePerHr * empFullTimeHr;
-				System.out.println("Full Time salary: " +fullTimeEmpsalary);
-				break;
-			case 2:
-				int empPartTimeHr = 4;
-				int partTimeEmpsalary = empWagePerHr * empPartTimeHr;
-				System.out.println("Part Time salary: " +partTimeEmpsalary);
-				break;
-			default:
+//		calculating wage for each day		
+		for (int day = 1; day <= noOfWorkingDays; day++) {
+			if (isFullTime == empCheck) {
+				int salary = wagePerHr * fullTimeWorkHr;
+				System.out.println("Salary of Fulltime employee" + " " + salary);
+			}
+			else if(empCheck == isPartTime){
+				int salary = wagePerHr * partTimeWorkHr;
+				System.out.println("Salary Of Part time Employee " +" "+ salary);
+			}
+			else {
 				int salary = 0;
-				System.out.println("As employee is absent , salary is : " +salary);
+				System.out.println("As employee is absent salary: " +salary);
+			}
 		}
 	}
 }
