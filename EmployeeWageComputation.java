@@ -2,28 +2,29 @@ package com.bridgelabz;
 
 public class EmployeeWageComputation {
 	public static void main(String[] args) {
-
-		//		constants for program
-		double empCheck = Math.floor(Math.random() * 10) % 3;
-		int isFullTime = 1;
-		int isPartTime = 2;
-		int wagePerHr = 20;
-		int fullTimeWorkHr = 8;
-		int partTimeWorkHr = 4;
-	
-		//	checking condition for full time and part time and calculating wage
-	
-		if (isFullTime == empCheck) {
-			int salary = wagePerHr * fullTimeWorkHr;
-			System.out.println("Wage per day is" + " " + salary);
-		}		
-		else if (empCheck == isPartTime) {
-			int salary = wagePerHr * partTimeWorkHr;
-			System.out.println(salary);
-		}
-		else {
-			int salary = 0;
-			System.out.println("As employee is absent wage is: " + salary);
+		
+//		constants for program
+		double empPresentAbsent = Math.floor(Math.random() * 10) % 3;
+		long presentAbsent = (long)empPresentAbsent;
+		int empCheck = (int)presentAbsent;
+		int empWagePerHr =20; 
+		
+//		checking condition with switch case 
+		
+		switch(empCheck){
+			case 1:
+				int empFullTimeHr = 8;			
+				int fullTimeEmpsalary = empWagePerHr * empFullTimeHr;
+				System.out.println("Full Time salary: " +fullTimeEmpsalary);
+				break;
+			case 2:
+				int empPartTimeHr = 4;
+				int partTimeEmpsalary = empWagePerHr * empPartTimeHr;
+				System.out.println("Part Time salary: " +partTimeEmpsalary);
+				break;
+			default:
+				int salary = 0;
+				System.out.println("As employee is absent , salary is : " +salary);
 		}
 	}
-}	
+}
